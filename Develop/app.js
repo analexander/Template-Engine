@@ -14,6 +14,72 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+// array of objects with prompt questions
+
+const main = async () => {
+    const employeeQuestions = [
+      {
+        type: "string",
+        name: "name",
+        message: "What is the employee's name?",
+      },
+      {
+        type: "string",
+        name: "id",
+        message: "What is the employee's ID number?",
+      },
+      {
+        type: "string",
+        name: "email",
+        message: "What is the employee's email address?",
+      },
+      {
+        type: "list",
+        name: "type",
+        message: "What type of employee is this?",
+        choices: [
+          'Intern',
+          'Manager',
+          'Engineer'
+        ]
+      }
+    ];
+
+    const internQuestions = [
+
+      {
+        type: "string",
+        name: "school",
+        message: "What school does this intern attend?",
+      }
+    ]
+
+    const managerQuestions = [
+
+      {
+        type: "string",
+        name: "officeNum",
+        message: "What is this manager's office number?",
+      }
+    ]
+
+    const engineerQuestions = [
+
+      {
+        type: "string",
+        name: "github",
+        message: "What is this engineer's GitHub username?",
+      }
+    ]
+
+    const otherEmployees = [
+      {
+        type: "confirm",
+        name: "moreEmployees",
+        message: "Are there other employees to be added?",
+      }
+    ];
+  
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
@@ -24,9 +90,20 @@ const render = require("./lib/htmlRenderer");
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
+const answers = render(await inquirer.prompt(employeeQuestions, internQuestions, managerQuestions, engineerQuestions, otherEmployees));
+outputPath('team.html', answers);
+};
+
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
+
+const outputPath = (fileName, data) => {
+    fs.writeFileSync(fileName, data, (error, file) => {
+      console.error(`could not write to file ${file} because ${error}`)
+    });
+  };
+  
 
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
 // and Intern classes should all extend from a class named Employee; see the directions
