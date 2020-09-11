@@ -11,9 +11,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 //Empty array of employees
+
 const myEmployees = [];
 
 // function to create employee
+
 function createEmployee() {
     inquirer.prompt([
         {
@@ -157,6 +159,7 @@ function createEmployee() {
     }
 
 //function to render html
+
 const renderHtml = () => {
         render(myEmployees);
         fs.writeFile(outputPath, render(myEmployees), (error, file) => {
@@ -167,10 +170,6 @@ const renderHtml = () => {
    }
 }
 
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
+// call function to create employee
 
 createEmployee();
