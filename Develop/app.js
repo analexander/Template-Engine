@@ -164,7 +164,7 @@ const renderHtml = () => {
         render(myEmployees);
         fs.writeFile(outputPath, render(myEmployees), (error, file) => {
             if (error) {
-          console.error("Something went wrong")
+          console.error("Something went wrong!")
           }
       });
    }
