@@ -152,12 +152,13 @@ function createEmployee() {
               }
             ]).then(function(answers) {
                 console.log(answers);
-                if (answers.confirm) {
-                    renderHtml();
+                if (answers.moreEmployees) {
+                    createEmployee()
                 } else {
-                    createEmployee();
+                    renderHtml();
                 }
             });
+    }
 // ]).then(function(answers) {
 //         console.log(answers);
 //         if (answers==="Yes") {
@@ -176,7 +177,7 @@ function createEmployee() {
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-}
+
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
@@ -184,15 +185,17 @@ function createEmployee() {
 const renderHtml = () => {
       render(myEmployees);
       fs.writeFile(outputPath, render(myEmployees), (error, file) => {
-              console.error(`could not write to file ${file} because ${error}`);
-            });
-          };
+          if (error) {
+        console.error("Something went wrong")
+      }
+          });
 }
+}
+
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
 // and Intern classes should all extend from a class named Employee; see the directions
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-module.exports = myEmployees;
 createEmployee();
