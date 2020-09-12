@@ -29,7 +29,6 @@ function createEmployee() {
             ]
           }
         ]).then(function (answers) {
-            console.log(answers);
             if (answers.role === 'Intern') {
                 newIntern();
             } else if (answers.role === 'Manager') {
@@ -67,7 +66,6 @@ function createEmployee() {
         }
 
         ]).then (function(answers) {
-            console.log(answers)
             const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
             myEmployees.push(intern);
             otherEmployees();
@@ -99,7 +97,6 @@ function createEmployee() {
           }
 
     ]).then (function(answers) {
-        console.log(answers);
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         myEmployees.push(manager);
         otherEmployees();
@@ -131,7 +128,6 @@ function createEmployee() {
               message: "What is this engineer's GitHub username?"
               }
     ]).then(function(answers) {
-        console.log(answers);
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         myEmployees.push(engineer);
         otherEmployees()
@@ -149,7 +145,6 @@ function createEmployee() {
                 default: true
               }
             ]).then(function(answers) {
-                console.log(answers);
                 if (answers.moreEmployees) {
                     createEmployee()
                 } else {
