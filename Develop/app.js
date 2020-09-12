@@ -47,17 +47,17 @@ function createEmployee() {
         {
             type: "string",
             name: "name",
-            message: "What is the employee's name?",
+            message: "What is this intern's name?",
         },
         {
             type: "string",
             name: "id",
-            message: "What is the employee's ID number?",
+            message: "What is this intern's ID number?",
         },
         {
             type: "string",
             name: "email",
-            message: "What is the employee's email address?",
+            message: "What is this intern's email address?",
         },
         {
             type: "string",
@@ -78,17 +78,17 @@ function createEmployee() {
           {
             type: "string",
             name: "name",
-            message: "What is the employee's name?",
+            message: "What is this managers name?",
           },
           {
             type: "string",
             name: "id",
-            message: "What is the employee's ID number?",
+            message: "What is this manager's ID number?",
           },
           {
             type: "string",
             name: "email",
-            message: "What is the employee's email address?",
+            message: "What is this manager's email address?",
           },
           {
             type: "string",
@@ -110,17 +110,17 @@ function createEmployee() {
             {
               type: "string",
               name: "name",
-              message: "What is the employee's name?",
+              message: "What is this engineer's name?",
               },
               {
               type: "string",
               name: "id",
-              message: "What is the employee's ID number?",
+              message: "What is this engineer's ID number?",
               },
               {
               type: "string",
               name: "email",
-              message: "What is the employee's email address?",
+              message: "What is this engineer's email address?",
               },
               {
               type: "string",
